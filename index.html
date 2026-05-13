@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto Rescue — Graduation Defense</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="topbar">
+      <div class="brand">
+        <div class="logo">AR</div>
+        <div>
+          <strong>Auto Rescue</strong>
+          <span>Graduation Defense Kit</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="themeToggle" class="ghost-btn" type="button">🌙</button>
+        <button data-switch="fr" class="lang-btn active" type="button">🇫🇷 Français</button>
+        <button data-switch="ar" class="lang-btn" type="button">🇩🇿 العربية</button>
+      </div>
+    </nav>
+
+    <section class="hero-content">
+      <div>
+        <p class="eyebrow">Projet de fin d’études • مشروع التخرج</p>
+        <h1>Auto Rescue</h1>
+        <h2>Plateforme intelligente d’assistance routière et de suivi en temps réel</h2>
+        <p class="hero-text">
+          Documentation interactive pour maîtriser la soutenance: architecture, Firebase, dispatch,
+          tracking, notifications, sécurité, difficultés, scripts et Q/R jury.
+        </p>
+        <div class="hero-buttons">
+          <a href="#fr-section" class="primary-btn">Commencer en français</a>
+          <a href="#ar-section" class="secondary-btn">ابدأ بالعربية</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="metric"><span>3</span><small>Rôles: Client, Provider, Admin</small></div>
+        <div class="metric"><span>Firebase</span><small>Backend temps réel</small></div>
+        <div class="metric"><span>Android + Web</span><small>Flutter multiplateforme</small></div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="overview-grid">
+      <div class="feature-card"><span>👤</span><h3>Client</h3><p>Création de demande, lieux, suivi live, chat et évaluation.</p></div>
+      <div class="feature-card"><span>🚘</span><h3>Provider</h3><p>Offres, acceptation/refus, navigation et tracking.</p></div>
+      <div class="feature-card"><span>🛡️</span><h3>Admin</h3><p>Validation, supervision, pricing, notifications et analytics.</p></div>
+      <div class="feature-card"><span>📍</span><h3>Temps réel</h3><p>Firestore, RTDB, FCM, Geolocator et Flutter Map.</p></div>
+    </section>
+
+    <section class="layout">
+      <aside class="sidebar">
+        <div class="sidebar-card lang-pane active" data-pane="fr">
+          <h3>Sommaire FR</h3>
+          <button class="toc-item" data-target="fr-0">1. Vue D&#x27;ensemble Du Projet</button>
+<button class="toc-item" data-target="fr-1">2. Problematique</button>
+<button class="toc-item" data-target="fr-2">3. Solution Proposee</button>
+<button class="toc-item" data-target="fr-3">4. Architecture Complete</button>
+<button class="toc-item" data-target="fr-4">5. Technologies Utilisees</button>
+<button class="toc-item" data-target="fr-5">6. Architecture Firebase</button>
+<button class="toc-item" data-target="fr-6">7. Structure De Donnees</button>
+<button class="toc-item" data-target="fr-7">8. Roles Utilisateurs</button>
+<button class="toc-item" data-target="fr-8">9. Explication Des Ecrans</button>
+<button class="toc-item" data-target="fr-9">10. Fonctionnalites Majeures</button>
+<button class="toc-item" data-target="fr-10">11. Services Importants</button>
+<button class="toc-item" data-target="fr-11">12. Repositories, Modeles, State</button>
+<button class="toc-item" data-target="fr-12">13. Flux Client</button>
+<button class="toc-item" data-target="fr-13">14. Flux Provider</button>
+<button class="toc-item" data-target="fr-14">15. Flux Admin</button>
+<button class="toc-item" data-target="fr-15">16. Cycle De Vie D&#x27;une Demande</button>
+<button class="toc-item" data-target="fr-16">17. Dispatch System</button>
+<button class="toc-item" data-target="fr-17">18. Tracking System</button>
+<button class="toc-item" data-target="fr-18">19. Notifications</button>
+<button class="toc-item" data-target="fr-19">20. Localisation</button>
+<button class="toc-item" data-target="fr-20">21. Securite Et Regles Firestore</button>
+<button class="toc-item" data-target="fr-21">22. Support Android/Web</button>
+<button class="toc-item" data-target="fr-22">23. Defis Resolus</button>
+<button class="toc-item" data-target="fr-23">24. Difficultes Techniques Et Reponses Du Code</button>
+<button class="toc-item" data-target="fr-24">25. Ameliorations Futures</button>
+<button class="toc-item" data-target="fr-25">26. Script De Presentation En Arabe</button>
+<button class="toc-item" data-target="fr-26">27. Script De Presentation En Francais</button>
+<button class="toc-item" data-target="fr-27">28. Questions/Reponses Jury AR/FR</button>
+<button class="toc-item" data-target="fr-28">29. Scenario De Demo Live</button>
+<button class="toc-item" data-target="fr-29">1. Ouvrir l&#x27;application.</button>
+<button class="toc-item" data-target="fr-30">2. Montrer le splash, onboarding et permission gate si premier lancement.</button>
+<button class="toc-item" data-target="fr-31">3. Se connecter comme admin et valider un provider.</button>
+<button class="toc-item" data-target="fr-32">4. Se connecter comme provider et passer online.</button>
+<button class="toc-item" data-target="fr-33">5. Se connecter comme customer et creer une demande.</button>
+<button class="toc-item" data-target="fr-34">6. Observer l&#x27;offre cote provider.</button>
+<button class="toc-item" data-target="fr-35">7. Accepter et ouvrir le tracking.</button>
+<button class="toc-item" data-target="fr-36">8. Montrer le chat.</button>
+<button class="toc-item" data-target="fr-37">9. Avancer les statuts jusqu&#x27;a completed.</button>
+<button class="toc-item" data-target="fr-38">10. Montrer rating et receipt.</button>
+<button class="toc-item" data-target="fr-39">11. Retourner dans admin analytics/logs.</button>
+<button class="toc-item" data-target="fr-40">30. Conclusion Finale</button>
+<button class="toc-item" data-target="fr-41">31. Elements Additionnels Identifies</button>
+        </div>
+        <div class="sidebar-card lang-pane" data-pane="ar">
+          <h3>الفهرس العربي</h3>
+          <button class="toc-item" data-target="ar-0">1. نظرة عامة على المشروع</button>
+<button class="toc-item" data-target="ar-1">2. الإشكالية</button>
+<button class="toc-item" data-target="ar-2">3. الحل المقترح</button>
+<button class="toc-item" data-target="ar-3">4. البنية العامة للتطبيق</button>
+<button class="toc-item" data-target="ar-4">5. التقنيات المستعملة ولماذا</button>
+<button class="toc-item" data-target="ar-5">6. معمارية Firebase</button>
+<button class="toc-item" data-target="ar-6">7. بنية قاعدة البيانات من الكود</button>
+<button class="toc-item" data-target="ar-7">8. أدوار المستخدمين</button>
+<button class="toc-item" data-target="ar-8">9. شرح الصفحات الرئيسية</button>
+<button class="toc-item" data-target="ar-9">10. الميزات الرئيسية</button>
+<button class="toc-item" data-target="ar-10">11. الخدمات المهمة</button>
+<button class="toc-item" data-target="ar-11">12. repositories / models / state management</button>
+<button class="toc-item" data-target="ar-12">13. مسار العميل</button>
+<button class="toc-item" data-target="ar-13">1. يدخل العميل أو يسجل حسابا.</button>
+<button class="toc-item" data-target="ar-14">2. AuthGate يوجهه إلى CustomerShellPage.</button>
+<button class="toc-item" data-target="ar-15">3. CustomerHomePage تعرض الموقع والخريطة.</button>
+<button class="toc-item" data-target="ar-16">4. يفتح CreateOrderPage.</button>
+<button class="toc-item" data-target="ar-17">5. يختار pickup و destination عبر PickDestinationPage أو SelectDestinationOnMapPage.</button>
+<button class="toc-item" data-target="ar-18">6. يدخل vehicleType و brandModel.</button>
+<button class="toc-item" data-target="ar-19">7. يرى estimate: distance, ETA, price.</button>
+<button class="toc-item" data-target="ar-20">8. _submit يستدعي AppStore.createRequest.</button>
+<button class="toc-item" data-target="ar-21">9. الطلب يكتب في requests/status=searching.</button>
+<button class="toc-item" data-target="ar-22">10. AppStore يبدأ dispatch فورا.</button>
+<button class="toc-item" data-target="ar-23">11. CustomerTrackingPage تعرض search/offer/route/provider.</button>
+<button class="toc-item" data-target="ar-24">12. إذا لم يقبل أي مزود، يظهر NoProvidersPopup.</button>
+<button class="toc-item" data-target="ar-25">13. عند القبول، يتابع العميل المزود ويتواصل معه.</button>
+<button class="toc-item" data-target="ar-26">14. بعد completed، CustomerShellPage يفتح CustomerRateProviderPage.</button>
+<button class="toc-item" data-target="ar-27">14. مسار المزود</button>
+<button class="toc-item" data-target="ar-28">1. يسجل كمزود.</button>
+<button class="toc-item" data-target="ar-29">2. يبقى في انتظار موافقة الإدارة.</button>
+<button class="toc-item" data-target="ar-30">3. بعد approval، يدخل ProviderShellPage.</button>
+<button class="toc-item" data-target="ar-31">4. من ProviderDashboardPage يستطيع go online/offline.</button>
+<button class="toc-item" data-target="ar-32">5. ProviderPresenceService يكتب RTDB presence ويحدث Firestore.</button>
+<button class="toc-item" data-target="ar-33">6. عندما يعرض dispatch طلبا عليه، ProviderShellPage يفتح MissionOfferDialog مع عداد.</button>
+<button class="toc-item" data-target="ar-34">7. يقبل أو يرفض أو ينتظر.</button>
+<button class="toc-item" data-target="ar-35">8. عند القبول، AppStore.acceptRequest يكتب provider info ويحدث busy state.</button>
+<button class="toc-item" data-target="ar-36">9. ProviderTrackingPage يبدأ GPS tracking.</button>
+<button class="toc-item" data-target="ar-37">10. المزود يتقدم عبر accepted -&gt; onTheWay -&gt; arrived -&gt; inService -&gt; completed.</button>
+<button class="toc-item" data-target="ar-38">11. بعد completion، ProviderRateClientPage يطلب تقييم العميل.</button>
+<button class="toc-item" data-target="ar-39">15. مسار الإدارة</button>
+<button class="toc-item" data-target="ar-40">1. admin يدخل عبر admin login.</button>
+<button class="toc-item" data-target="ar-41">2. AuthGate يوجهه إلى AdminDashboardPage.</button>
+<button class="toc-item" data-target="ar-42">3. الإدارة ترى overview من requests/providers/users.</button>
+<button class="toc-item" data-target="ar-43">4. يمكنها approving/blocking providers، حظر العملاء، تعديل pricing/settings/support، إرسال notifications، مراجعة requests، تصدير analytics، ورؤية audit logs.</button>
+<button class="toc-item" data-target="ar-44">5. AdminAuditService يسجل actions المهمة مثل send_notification و update_pricing و update_support_config.</button>
+<button class="toc-item" data-target="ar-45">16. دورة حياة الطلب</button>
+<button class="toc-item" data-target="ar-46">17. شرح نظام dispatch</button>
+<button class="toc-item" data-target="ar-47">1. يتم بناء chain من المزودين المؤهلين مرتبين حسب المسافة.</button>
+<button class="toc-item" data-target="ar-48">2. يكتب offeredProviderUid في الطلب.</button>
+<button class="toc-item" data-target="ar-49">3. يبدأ offer timeout حسب providerOfferTimeoutSec.</button>
+<button class="toc-item" data-target="ar-50">4. إن قبل المزود، تتحول المهمة إلى accepted.</button>
+<button class="toc-item" data-target="ar-51">5. إن رفض أو انتهى الوقت، يضاف المزود إلى rejectedProviderUids وينتقل النظام للذي بعده.</button>
+<button class="toc-item" data-target="ar-52">6. إذا انتهت السلسلة، يظهر noProviderPopupVisible للعميل بعد double-check.</button>
+<button class="toc-item" data-target="ar-53">7. keepWaitingForProvider يمسح العرض ويعيد المحاولة بعد فترة muted.</button>
+<button class="toc-item" data-target="ar-54">18. شرح نظام التتبع</button>
+<button class="toc-item" data-target="ar-55">1. داخل AppStore:</button>
+<button class="toc-item" data-target="ar-56">2. RealtimeTrackingService:</button>
+<button class="toc-item" data-target="ar-57">19. نظام الإشعارات</button>
+<button class="toc-item" data-target="ar-58">20. نظام اللغات</button>
+<button class="toc-item" data-target="ar-59">21. الأمن وقواعد Firestore</button>
+<button class="toc-item" data-target="ar-60">22. دعم Android و Web</button>
+<button class="toc-item" data-target="ar-61">23. التحديات المحلولة</button>
+<button class="toc-item" data-target="ar-62">24. صعوبات تقنية وكيف عالجها الكود</button>
+<button class="toc-item" data-target="ar-63">25. تحسينات مستقبلية</button>
+<button class="toc-item" data-target="ar-64">26. نص عرض التخرج بالعربية</button>
+<button class="toc-item" data-target="ar-65">27. نص عرض التخرج بالفرنسية</button>
+<button class="toc-item" data-target="ar-66">28. أسئلة لجنة المناقشة وإجابات بالعربية/الفرنسية</button>
+<button class="toc-item" data-target="ar-67">29. سيناريو العرض المباشر</button>
+<button class="toc-item" data-target="ar-68">1. تشغيل التطبيق على Web أو Android.</button>
+<button class="toc-item" data-target="ar-69">2. الدخول ك admin وإظهار dashboard.</button>
+<button class="toc-item" data-target="ar-70">3. عرض providers pending ثم الموافقة على provider.</button>
+<button class="toc-item" data-target="ar-71">4. الدخول كمزود والضغط online.</button>
+<button class="toc-item" data-target="ar-72">5. الدخول كعميل وإنشاء طلب من CreateOrderPage.</button>
+<button class="toc-item" data-target="ar-73">6. مراقبة انتقال الطلب إلى searching.</button>
+<button class="toc-item" data-target="ar-74">7. إظهار عرض المهمة على provider مع countdown.</button>
+<button class="toc-item" data-target="ar-75">8. قبول المهمة.</button>
+<button class="toc-item" data-target="ar-76">9. فتح CustomerTrackingPage و ProviderTrackingPage.</button>
+<button class="toc-item" data-target="ar-77">10. تحريك/تحديث موقع provider إن أمكن أو شرح fallback.</button>
+<button class="toc-item" data-target="ar-78">11. فتح chat بين العميل والمزود.</button>
+<button class="toc-item" data-target="ar-79">12. التقدم في مراحل المهمة حتى completed.</button>
+<button class="toc-item" data-target="ar-80">13. إظهار rating page و receipt.</button>
+<button class="toc-item" data-target="ar-81">14. العودة إلى admin analytics و requests لمشاهدة التحديث.</button>
+<button class="toc-item" data-target="ar-82">30. الخاتمة</button>
+<button class="toc-item" data-target="ar-83">31. مزايا وخيارات إضافية ظهرت من تحليل المصدر</button>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div id="fr-section" class="lang-section active" data-section="fr">
+          <div class="section-heading">
+            <p>Section française</p>
+            <h2>Documentation complète du projet</h2>
+          </div>
+          
+<article id="fr-0" class="doc-card">
+  <h3>1. Vue D&#x27;ensemble Du Projet</h3>
+  <div class="doc-content">
+    <p>Auto Rescue est une application Flutter/Firebase d&#x27;assistance routiere en temps reel. Elle permet a un client de creer une demande de remorquage ou de depannage, a un provider de recevoir et traiter la mission, et a un administrateur de controler l&#x27;activite de la plateforme.</p><p>Le projet est structure comme une application de production academique: authentification, base de donnees realtime, dispatch, presence provider, tracking GPS, notifications, roles, interface admin, support multilingue et compatibilite Android/Web.</p><h4>Fichiers principaux:</h4><ul><li>lib/main.dart: initialisation Firebase, FCM, AppStore, langue, theme et flux d&#x27;entree.</li><li>lib/state/app_store.dart: coeur de la logique metier.</li><li>lib/repositories/firestore_request_repository.dart: transactions Firestore des demandes.</li><li>lib/features/customer, provider, admin: pages par role.</li><li>firestore.rules et storage.rules: securite Firebase.</li><li>functions/index.js: proxy cartographie et routing.</li></ul>
+  </div>
+</article>
+
+
+<article id="fr-1" class="doc-card">
+  <h3>2. Problematique</h3>
+  <div class="doc-content">
+    <p>Lorsqu&#x27;un conducteur est en panne, il doit trouver rapidement une aide fiable, proche et disponible. Sans plateforme, il n&#x27;a pas de visibilite sur les providers, sur le prix, sur le temps d&#x27;arrivee ou sur l&#x27;avancement de l&#x27;intervention.</p><p>La problematique technique est aussi forte: il faut gerer la disponibilite des providers, eviter les doubles missions, suivre la position en temps reel, proteger les donnees avec Firebase Rules, et fonctionner sur Android et Web.</p>
+  </div>
+</article>
+
+
+<article id="fr-2" class="doc-card">
+  <h3>3. Solution Proposee</h3>
+  <div class="doc-content">
+    <p>La solution implementee est une plateforme Flutter connectee a Firebase. Le client cree une demande, Firestore stocke l&#x27;etat, AppStore declenche le dispatch, le provider accepte ou refuse, et les deux parties suivent la mission en temps reel sur une carte.</p><p>L&#x27;administration dispose d&#x27;un tableau de bord pour valider les providers, controler les comptes, modifier les prix, envoyer des notifications et consulter les analytics.</p>
+  </div>
+</article>
+
+
+<article id="fr-3" class="doc-card">
+  <h3>4. Architecture Complete</h3>
+  <div class="doc-content">
+    <h4>L&#x27;architecture suit une separation par couches:</h4><ul><li>Presentation: pages dans features/** et widgets reutilisables.</li><li>State management: AppStore avec ChangeNotifier.</li><li>Repositories: RequestRepository et TrackingRepository.</li><li>Services: auth, location, routing, notifications, audit, presence.</li><li>Firebase: Auth, Firestore, RTDB, Messaging, Storage, Hosting, Functions.</li></ul><p>Le point de demarrage actuel est main.dart. DepannageApp dans lib/app/auto_rescue.dart existe, mais le chemin principal utilise MyApp et _AppEntry.</p>
+  </div>
+</article>
+
+
+<article id="fr-4" class="doc-card">
+  <h3>5. Technologies Utilisees</h3>
+  <div class="doc-content">
+    <ul><li>Flutter/Dart: interface Android et Web.</li><li>Provider: propagation de AppStore et AppLanguageController.</li><li>Firebase Auth: authentification role-based.</li><li>Cloud Firestore: stockage realtime des demandes, utilisateurs, providers, notifications et chats.</li><li>Realtime Database: presence provider avec onDisconnect.</li><li>Firebase Messaging: payloads et notifications.</li><li>Flutter Local Notifications: affichage local sur Android.</li><li>Firebase Storage: images providers et admin notifications.</li><li>Firebase Functions Node.js: proxy map/search/route.</li><li>flutter_map/OpenStreetMap: cartes.</li><li>geolocator: GPS et permission.</li><li>latlong2: distances geographiques.</li><li>http: APIs externes/proxy.</li><li>shared_preferences: langue et onboarding.</li><li>audioplayers/vibration: alertes provider.</li><li>url_launcher: telephone, WhatsApp, email, Google Maps.</li><li>file_picker: selection d&#x27;image pour notification admin.</li></ul>
+  </div>
+</article>
+
+
+<article id="fr-5" class="doc-card">
+  <h3>6. Architecture Firebase</h3>
+  <div class="doc-content">
+    <p>Firebase Auth gere les comptes, Firestore gere les donnees applicatives, RTDB gere la presence provider, Messaging gere les notifications, Storage gere les images, Hosting sert le build Web, Functions sert les proxies.</p><h4>firebase.json configure:</h4><ul><li>firestore.rules</li><li>storage.rules</li><li>functions avec nodejs20</li><li>hosting public build/web avec rewrite SPA</li></ul><p>lib/firebase_options.dart configure Android et Web seulement.</p>
+  </div>
+</article>
+
+
+<article id="fr-6" class="doc-card">
+  <h3>7. Structure De Donnees</h3>
+  <div class="doc-content">
+    <h4>La structure derivee du code est:</h4><ul><li>users/{uid}: profil et role.</li><li>phone_lookup/{phone}: correspondance telephone/email.</li><li>providers/{uid}: profil provider, disponibilite, position, busy state, rating.</li><li>requests/{requestId}: mission complete, dispatch, statut, tracking, prix, rating.</li><li>request_chats/{requestId}/messages/{messageId}: chat par mission.</li><li>app_config/pricing: prix et commission.</li><li>app_config/support: informations support.</li><li>app_settings/main: rayon dispatch, timeout provider, mode maintenance, appEnabled.</li><li>app_notifications/{docId}: notifications admin.</li><li>admin_activity_logs et adminLogs: historique actions admin.</li><li>email_otps: OTP email dans AuthService, mais regles Firestore non visibles pour cette collection.</li></ul>
+  </div>
+</article>
+
+
+<article id="fr-7" class="doc-card">
+  <h3>8. Roles Utilisateurs</h3>
+  <div class="doc-content">
+    <h4>Customer:</h4><ul><li>cree des demandes.</li><li>suit la mission.</li><li>chatte avec le provider.</li><li>annule une demande en recherche.</li><li>note le provider.</li></ul><h4>Provider:</h4><ul><li>attend validation admin.</li><li>passe online/offline.</li><li>accepte/refuse une mission.</li><li>partage sa position.</li><li>avance les statuts.</li><li>note le client.</li></ul><h4>Admin:</h4><ul><li>supervise.</li><li>valide/bloque.</li><li>configure prix/support.</li><li>envoie notifications.</li><li>analyse et exporte.</li><li>consulte les logs.</li></ul>
+  </div>
+</article>
+
+
+<article id="fr-8" class="doc-card">
+  <h3>9. Explication Des Ecrans</h3>
+  <div class="doc-content">
+    <h4>Authentification:</h4><ul><li>SplashPage: transition initiale.</li><li>OnboardingPage: introduction.</li><li>PermissionGatePage: permissions GPS/notifications.</li><li>LoginPage: connexion publique et admin.</li><li>SignupPage: creation client/provider.</li><li>AuthGate: routage selon role.</li></ul><h4>Client:</h4><ul><li>CustomerHomePage: carte, position, actions rapides.</li><li>CreateOrderPage: formulaire de demande et estimation.</li><li>PickDestinationPage: recherche et suggestions de lieux.</li><li>SelectDestinationOnMapPage: choix direct sur carte.</li><li>CustomerRequestsPage: demandes actives.</li><li>CustomerTrackingPage: suivi mission, route, markers, chat, appel, no-provider popup.</li><li>CustomerHistoryPage: historique.</li><li>CustomerRateProviderPage: notation du provider.</li><li>CustomerProfilePage: profil client.</li><li>CustomerSupportPage: support et documents legaux.</li></ul><h4>Provider:</h4><ul><li>ProviderDashboardPage: carte provider, online/offline, stats.</li><li>ProviderRequestsPage: offres et missions actives.</li><li>ProviderMissionDetailsPage: details mission.</li><li>ProviderTrackingPage: tracking provider et navigation.</li><li>ProviderEarningsPage: gains.</li><li>ProviderHistoryPage: historique.</li><li>ProviderRateClientPage: notation du client.</li><li>ProviderProfilePage: profil provider.</li><li>ProviderSupportPage: support.</li><li>ProviderShellPage: navigation, offres, FCM, chat, rating force.</li></ul><h4>Admin:</h4><ul><li>AdminDashboardPage: centre de commande.</li><li>AdminRequestsPage: supervision et actions sur demandes.</li><li>AdminPricingPage: configuration prix.</li><li>AdminSupportConfigPage: configuration support.</li><li>AdminNotificationsPage: creation notifications.</li><li>AdminAnalyticsPage: indicateurs et CSV.</li><li>AdminActivityLogPage: audit actions.</li></ul><h4>Shared:</h4><ul><li>ChatPage: discussion par request.</li><li>MissionReceiptPage: recu mission.</li><li>LegalPage: confidentialite et conditions.</li></ul>
+  </div>
+</article>
+
+
+<article id="fr-9" class="doc-card">
+  <h3>10. Fonctionnalites Majeures</h3>
+  <div class="doc-content">
+    <ul><li>Creation de demande avec pickup/destination.</li><li>Estimation distance/ETA/prix.</li><li>Dispatch automatique un provider a la fois.</li><li>Timeout de mission offer.</li><li>Popup aucun provider disponible.</li><li>Tracking GPS realtime.</li><li>Route avec fallback.</li><li>Chat.</li><li>Rating bilateral.</li><li>Admin provider approval.</li><li>Blocking users/providers.</li><li>Pricing dynamique.</li><li>Notifications admin planifiees.</li><li>Analytics et export CSV.</li><li>Support centralise.</li><li>Multilingue FR/EN/AR.</li></ul>
+  </div>
+</article>
+
+
+<article id="fr-10" class="doc-card">
+  <h3>11. Services Importants</h3>
+  <div class="doc-content">
+    <h4>AuthService:</h4><p>Gere connexion, inscription, role, phone lookup, token FCM non critique, image provider.</p><h4>FcmService:</h4><p>Configure Firebase Messaging, high importance channel, payloadNotifier.</p><h4>ProviderPresenceService:</h4><p>Ecrit RTDB presence et miroir Firestore online.</p><h4>LocationService:</h4><p>Obtient position avec fallback et high accuracy tracking.</p><h4>RouteService:</h4><p>Construit route via proxy, ORS, OSRM, GraphHopper, Mapbox, puis fallback.</p><h4>MapProxyService:</h4><p>Appelle les Cloud Functions.</p><h4>PlaceSearchService / GeocodingService:</h4><p>Recherche et reverse geocoding.</p><h4>AlertService:</h4><p>Son et vibration pour provider/admin.</p><h4>AdminAuditService:</h4><p>Trace les actions admin.</p>
+  </div>
+</article>
+
+
+<article id="fr-11" class="doc-card">
+  <h3>12. Repositories, Modeles, State</h3>
+  <div class="doc-content">
+    <h4>AppStore est le coordinateur principal:</h4><ul><li>ecoute Auth.</li><li>ecoute requests/providers/pricing/settings.</li><li>gere dispatch.</li><li>gere tracking.</li><li>gere notifications.</li><li>calcule distance, ETA, prix, commission.</li><li>expose activeCustomerRequests, providerAvailableRequests, providerAssignedRequests.</li></ul><p>FirestoreRequestRepository utilise des transactions pour offer/reject/accept afin de limiter les collisions.</p><p>FirestoreTrackingRepository lit et ecrit le tracking dans requests.</p><p>Les modeles structurent les donnees et evitent une manipulation directe partout.</p>
+  </div>
+</article>
+
+
+<article id="fr-12" class="doc-card">
+  <h3>13. Flux Client</h3>
+  <div class="doc-content">
+    <p>Connexion -&gt; Home -&gt; CreateOrder -&gt; Pick pickup/destination -&gt; validation -&gt; request searching -&gt; dispatch -&gt; tracking -&gt; chat/appel -&gt; completion -&gt; rating.</p>
+  </div>
+</article>
+
+
+<article id="fr-13" class="doc-card">
+  <h3>14. Flux Provider</h3>
+  <div class="doc-content">
+    <p>Inscription -&gt; validation admin -&gt; online -&gt; reception offer -&gt; accept/reject -&gt; tracking -&gt; advance mission -&gt; completed -&gt; rating client.</p>
+  </div>
+</article>
+
+
+<article id="fr-14" class="doc-card">
+  <h3>15. Flux Admin</h3>
+  <div class="doc-content">
+    <p>Login admin -&gt; dashboard -&gt; validate providers -&gt; monitor requests -&gt; configure pricing/support -&gt; send notifications -&gt; analytics/logs.</p>
+  </div>
+</article>
+
+
+<article id="fr-15" class="doc-card">
+  <h3>16. Cycle De Vie D&#x27;une Demande</h3>
+  <div class="doc-content">
+    <p>searching -&gt; accepted -&gt; onTheWay -&gt; arrived -&gt; inService -&gt; completed.</p><p>cancelled peut interrompre la demande.</p><p>Les transitions principales sont dans AppStore.advanceMission. L&#x27;acceptation est securisee par FirestoreRequestRepository.acceptOfferedRequest.</p>
+  </div>
+</article>
+
+
+<article id="fr-16" class="doc-card">
+  <h3>17. Dispatch System</h3>
+  <div class="doc-content">
+    <p>Le dispatch est client-side dans AppStore mais securise par Firestore Rules et transactions.</p><h4>Provider eligible:</h4><ul><li>online.</li><li>approved.</li><li>not busy.</li><li>no active mission.</li><li>location valid.</li><li>inside radius.</li><li>not rejected before.</li></ul><h4>Exclusion reasons:</h4><ul><li>offline</li><li>busy</li><li>active mission</li><li>not approved</li><li>missing location</li><li>rejected</li><li>too far</li></ul><p>Le systeme construit une chaine, propose au provider courant, attend le timeout, puis passe au suivant. Le message &quot;aucun provider disponible&quot; apparait seulement apres epuisement reel et double verification.</p>
+  </div>
+</article>
+
+
+<article id="fr-17" class="doc-card">
+  <h3>18. Tracking System</h3>
+  <div class="doc-content">
+    <h4>Tracking provider:</h4><ul><li>Geolocator stream dans AppStore.startLiveTracking.</li><li>RealtimeTrackingService dans ProviderTrackingPage.</li><li>Firestore updates dans requests.providerPosition et providers.position.</li></ul><h4>Tracking UI:</h4><ul><li>CustomerTrackingPage et ProviderTrackingPage utilisent FlutterMap.</li><li>RouteService fournit RouteSnapshot.</li><li>Si routing echoue, fallback ligne droite.</li></ul>
+  </div>
+</article>
+
+
+<article id="fr-18" class="doc-card">
+  <h3>19. Notifications</h3>
+  <div class="doc-content">
+    <ul><li>FCM payloads via FcmService.</li><li>Local notifications sur Android.</li><li>In-app lifecycle notifications.</li><li>Chat notifications via request_chats metadata.</li><li>Admin notifications via app_notifications.</li><li>Provider offer alert via audio/vibration.</li></ul>
+  </div>
+</article>
+
+
+<article id="fr-19" class="doc-card">
+  <h3>20. Localisation</h3>
+  <div class="doc-content">
+    <p>AppLocalizations contient les dictionnaires fr, en, ar.</p><p>AppLanguageController persiste le code langue.</p><p>MaterialApp utilise supportedLocales.</p><p>Directionality devient RTL en arabe.</p><p>LanguageSelector propose arabe, anglais, francais.</p>
+  </div>
+</article>
+
+
+<article id="fr-20" class="doc-card">
+  <h3>21. Securite Et Regles Firestore</h3>
+  <div class="doc-content">
+    <h4>Les regles imposent:</h4><ul><li>role-based access.</li><li>lecture request limitee a admin/customer owner/provider assigned/offered.</li><li>creation request par customer seulement.</li><li>dispatch customer uniquement vers provider disponible.</li><li>accept/reject provider uniquement si l&#x27;offre lui appartient.</li><li>tracking write par provider assigne.</li><li>admin-only app_config, app_settings, app_notifications, logs.</li></ul><p>Storage limite les images providers a 5MB et image/*.</p>
+  </div>
+</article>
+
+
+<article id="fr-21" class="doc-card">
+  <h3>22. Support Android/Web</h3>
+  <div class="doc-content">
+    <h4>Android:</h4><ul><li>permissions GPS, notifications, vibration, internet.</li><li>Firebase Android config.</li><li>local notifications et channel FCM.</li></ul><h4>Web:</h4><ul><li>Firebase Web config.</li><li>service worker messaging.</li><li>Hosting SPA.</li><li>Cloud Functions proxy pour eviter CORS.</li></ul><h4>Limitation:</h4><ul><li>autres plateformes non configurees dans FlutterFire.</li></ul>
+  </div>
+</article>
+
+
+<article id="fr-22" class="doc-card">
+  <h3>23. Defis Resolus</h3>
+  <div class="doc-content">
+    <ul><li>Dispatch sans dependance externe.</li><li>Presence provider robuste.</li><li>Busy-state protection.</li><li>Fallback routing.</li><li>Web CORS.</li><li>Role routing.</li><li>Admin supervision.</li><li>Multilingue avec arabe RTL.</li></ul>
+  </div>
+</article>
+
+
+<article id="fr-23" class="doc-card">
+  <h3>24. Difficultes Techniques Et Reponses Du Code</h3>
+  <div class="doc-content">
+    <ul><li>GPS refuse: fallback.</li><li>APIs routing indisponibles: fallback.</li><li>Provider deconnecte: RTDB onDisconnect.</li><li>Offre expiree: timer et rejectOfferedRequest.</li><li>Provider stale busy: repair state.</li><li>Chat realtime: metadata et streams.</li><li>Secrets: .gitignore et absence de logs FCM token.</li></ul>
+  </div>
+</article>
+
+
+<article id="fr-24" class="doc-card">
+  <h3>25. Ameliorations Futures</h3>
+  <div class="doc-content">
+    <ul><li>Dispatch backend Cloud Functions.</li><li>Regles pour email_otps ou OTP serveur.</li><li>Tests d&#x27;integration.</li><li>Monitoring production.</li><li>Index Firestore documentes.</li><li>Configuration iOS.</li><li>Localisation complete de textes restants.</li><li>Meilleure securite RTDB rules.</li><li>Paiement en ligne si requis.</li></ul>
+  </div>
+</article>
+
+
+<article id="fr-25" class="doc-card">
+  <h3>26. Script De Presentation En Arabe</h3>
+  <div class="doc-content">
+    <p>السلام عليكم، هذا المشروع هو Auto Rescue، تطبيق مساعدة على الطريق مبني ب Flutter و Firebase. التطبيق يحل مشكلة ربط العميل الذي يحتاج إلى dépannage أو remorquage بمزود قريب ومعتمد في الوقت الحقيقي.</p><p>يعتمد المشروع على ثلاثة أدوار: العميل، المزود، والإدارة. العميل ينشئ الطلب ويتابع المهمة، المزود يستقبل المهمة ويتحرك نحو العميل، والإدارة تراقب المنصة وتوافق على المزودين وتضبط الأسعار.</p><p>أهم جزء هو نظام dispatch الموجود في AppStore. هذا النظام يقرأ المزودين من Firestore، يفلتر غير المؤهلين، يرتب الباقين حسب المسافة، ويرسل المهمة لمزود واحد في كل مرة. إذا رفض المزود أو انتهى الوقت، ينتقل النظام للمزود التالي.</p><p>التطبيق يستخدم Firebase Auth للمصادقة، Firestore للبيانات، Realtime Database للحضور، Firebase Messaging للإشعارات، و Flutter Map للخرائط. كما توجد Cloud Functions لتجاوز مشاكل CORS في Web.</p><p>المشروع يدعم الفرنسية والإنجليزية والعربية، ويحتوي على لوحة إدارة وتحليلات وتصدير CSV ودردشة وتتبع مباشر. لذلك فهو ليس مجرد واجهة، بل نظام كامل يربط بين عدة أطراف في الوقت الحقيقي.</p>
+  </div>
+</article>
+
+
+<article id="fr-26" class="doc-card">
+  <h3>27. Script De Presentation En Francais</h3>
+  <div class="doc-content">
+    <p>Bonjour, mon projet est Auto Rescue, une application Flutter et Firebase pour l&#x27;assistance routiere en temps reel.</p><p>Le projet repose sur trois roles: client, provider et administrateur. Le client cree une demande avec sa position et sa destination. Le provider recoit une offre, l&#x27;accepte ou la refuse, puis partage sa position. L&#x27;administrateur valide les providers, surveille les demandes, configure les prix et consulte les analytics.</p><p>Le point central est le systeme de dispatch implemente dans AppStore. Il lit les providers dans Firestore, filtre ceux qui ne sont pas eligibles, trie les providers disponibles par distance, puis propose la mission a un seul provider a la fois avec un timeout.</p><p>Le projet utilise Firebase Auth, Cloud Firestore, Realtime Database, Firebase Messaging, Storage, Hosting et Cloud Functions. L&#x27;application fonctionne sur Android et Web, avec des fallbacks pour le routing et la recherche de lieux.</p><p>Auto Rescue montre donc une solution complete, securisee et realtime pour un besoin concret de depannage routier.</p>
+  </div>
+</article>
+
+
+<article id="fr-27" class="doc-card">
+  <h3>28. Questions/Reponses Jury AR/FR</h3>
+  <div class="doc-content">
+    <p>Question: Quel est le coeur technique du projet ?</p><p>Reponse: AppStore, car il orchestre auth-aware streams, dispatch, tracking, pricing, notifications et lifecycle.</p><p>السؤال: ما هو القلب التقني للمشروع؟</p><p>الجواب: AppStore لأنه ينسق الطلبات، المزودين، dispatch، التتبع، التسعير، والإشعارات.</p><p>Question: Pourquoi utiliser Firestore ?</p><p>Reponse: Pour les streams realtime, les transactions et les rules role-based.</p><p>السؤال: لماذا Firestore؟</p><p>الجواب: لأنه يوفر realtime streams، transactions، وقواعد أمن حسب الدور.</p><p>Question: Que se passe-t-il si aucune route API ne repond ?</p><p>Reponse: RouteService retourne une route fallback en ligne directe.</p><p>السؤال: ماذا يحدث إذا فشلت APIs الطريق؟</p><p>الجواب: RouteService يرجع خطا مباشرا fallback ولا تتوقف الواجهة.</p><p>Question: Comment un provider est-il valide ?</p><p>Reponse: AdminDashboardPage modifie isApproved dans users et providers.</p><p>السؤال: كيف تتم الموافقة على provider؟</p><p>الجواب: الإدارة تعدل isApproved في users و providers.</p><p>Question: Les donnees sensibles sont-elles loggees ?</p><p>Reponse: Le code FCM ne logge pas le token brut. Les diagnostics dispatch evitent phone/email/token.</p><p>السؤال: هل يتم طباعة بيانات حساسة؟</p><p>الجواب: لا يتم طباعة FCM token الخام، و logs الخاصة بال dispatch آمنة.</p>
+  </div>
+</article>
+
+
+<article id="fr-28" class="doc-card">
+  <h3>29. Scenario De Demo Live</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="fr-29" class="doc-card">
+  <h3>1. Ouvrir l&#x27;application.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="fr-30" class="doc-card">
+  <h3>2. Montrer le splash, onboarding et permission gate si premier lancement.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="fr-31" class="doc-card">
+  <h3>3. Se connecter comme admin et valider un provider.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="fr-32" class="doc-card">
+  <h3>4. Se connecter comme provider et passer online.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="fr-33" class="doc-card">
+  <h3>5. Se connecter comme customer et creer une demande.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="fr-34" class="doc-card">
+  <h3>6. Observer l&#x27;offre cote provider.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="fr-35" class="doc-card">
+  <h3>7. Accepter et ouvrir le tracking.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="fr-36" class="doc-card">
+  <h3>8. Montrer le chat.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="fr-37" class="doc-card">
+  <h3>9. Avancer les statuts jusqu&#x27;a completed.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="fr-38" class="doc-card">
+  <h3>10. Montrer rating et receipt.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="fr-39" class="doc-card">
+  <h3>11. Retourner dans admin analytics/logs.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="fr-40" class="doc-card">
+  <h3>30. Conclusion Finale</h3>
+  <div class="doc-content">
+    <p>Auto Rescue est un projet complet de fin d&#x27;etudes qui combine Flutter, Firebase et une logique metier realtime. Le code couvre les parcours client, provider et admin, securise l&#x27;acces avec Firestore rules, gere le dispatch sans API externe critique, et degrade correctement les cartes et routes en cas d&#x27;echec. Les limites restantes concernent surtout la hardening backend, les tests d&#x27;integration, la configuration de plateformes supplementaires et le passage vers une production commerciale.</p>
+  </div>
+</article>
+
+
+<article id="fr-41" class="doc-card">
+  <h3>31. Elements Additionnels Identifies</h3>
+  <div class="doc-content">
+    <ul><li>Script reset_sessions.js pour maintenance avec Firebase Admin SDK local.</li><li>Deux couches de tracking existent: AppStore.startLiveTracking et RealtimeTrackingService.</li><li>Notifications admin avec image, son, audience et planning.</li><li>Support client/provider lit le meme app_config/support.</li><li>LegalPage contient les textes de confidentialite et conditions.</li><li>README.md est deja tres proche du code actuel.</li><li>web/manifest.json garde une description generique &quot;A new Flutter project.&quot;, a ameliorer hors de cette tache si necessaire.</li></ul>
+  </div>
+</article>
+
+        </div>
+
+        <div id="ar-section" class="lang-section rtl" data-section="ar">
+          <div class="section-heading">
+            <p>القسم العربي</p>
+            <h2>التوثيق الكامل للمشروع</h2>
+          </div>
+          
+<article id="ar-0" class="doc-card">
+  <h3>1. نظرة عامة على المشروع</h3>
+  <div class="doc-content">
+    <p>Auto Rescue هو تطبيق Flutter/Firebase للمساعدة على الطريق، موجه لطلب خدمات السحب والدعم الميكانيكي في الوقت الحقيقي. المشروع منظم كتطبيق إنتاجي مصغر وليس مجرد نموذج بسيط، لأنه يحتوي على أدوار متعددة، مصادقة Firebase، قواعد Firestore، تتبع مباشر، خرائط، إشعارات، لوحة إدارة، تعدد لغات، وإدارة حالة مركزية.</p><h4>حسب الشيفرة، التطبيق يخدم ثلاثة أطراف:</h4><ul><li>العميل: يطلب المساعدة، يحدد نقطة الانطلاق والوجهة، يتابع المزود، يدردش معه، يلغي الطلب عند الحاجة، ويقيم المزود بعد نهاية المهمة.</li><li>المزود: يسجل حسابا ينتظر موافقة الإدارة، يدخل في حالة online/offline، يستقبل عروض المهام، يقبل أو يرفض، يشارك موقعه ويتقدم في مراحل المهمة.</li><li>الإدارة: تراقب الطلبات والمستخدمين والمزودين، توافق على المزودين، تمنع الحسابات، تعدل التسعير، ترسل إشعارات، وتراجع السجلات والتحليلات.</li></ul><h4>الملفات المركزية:</h4><ul><li>lib/main.dart: نقطة تشغيل التطبيق وتهيئة Firebase واللغة و AppStore و FCM.</li><li>lib/state/app_store.dart: منطق الحالة، الطلبات، dispatch، التتبع، التسعير، الإشعارات، وحالة المزود.</li><li>lib/repositories/firestore_request_repository.dart: طبقة Firestore الخاصة بالطلبات.</li><li>lib/repositories/firestore_tracking_repository.dart: طبقة التتبع المباشر المخزن داخل وثيقة الطلب.</li><li>lib/features/customer/**، lib/features/provider/**، lib/features/admin/**: واجهات الأدوار الثلاثة.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-1" class="doc-card">
+  <h3>2. الإشكالية</h3>
+  <div class="doc-content">
+    <p>في خدمات dépannage التقليدية، غالبا ما يواجه السائق مشكلة في إيجاد مزود قريب وموثوق بسرعة، خصوصا عند العطل المفاجئ أو الحاجة إلى remorquage. الإشكال التقني والعملي يتمثل في:</p><ul><li>صعوبة تحديد موقع العميل بدقة.</li><li>عدم وجود رؤية لحالة المزودين: متاح، مشغول، غير متصل، أو غير معتمد.</li><li>تأخر الاتصال اليدوي بين العميل والمزود.</li><li>صعوبة تتبع وصول المزود.</li><li>غياب لوحة تحكم للإدارة من أجل الموافقات، التسعير، والتحليلات.</li><li>الحاجة إلى دعم Android و Web مع اختلافات في CORS، الإشعارات، و GPS.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-2" class="doc-card">
+  <h3>3. الحل المقترح</h3>
+  <div class="doc-content">
+    <p>الحل الموجود في الكود هو منصة Flutter متصلة ب Firebase. العميل ينشئ طلبا في Firestore، ثم يقوم AppStore ببناء سلسلة dispatch من مزودي Firestore فقط، يفلتر المزودين حسب الأهلية، يرتبهم حسب المسافة، ويرسل العرض لمزود واحد في كل مرة. المزود يستقبل عرضا مع عداد زمني، وعند القبول يتم تحويل المهمة إلى accepted، تفعيل busy/active mission، ثم يبدأ التتبع.</p><p>الحل لا يجعل dispatch تابعا ل Nominatim أو Overpass أو route APIs. هذه الخدمات تستخدم فقط للخرائط والبحث والعرض، وليس لاختيار المزود.</p>
+  </div>
+</article>
+
+
+<article id="ar-3" class="doc-card">
+  <h3>4. البنية العامة للتطبيق</h3>
+  <div class="doc-content">
+    <h4>البنية feature-first مع طبقات مشتركة:</h4><p>lib/</p><ul><li>app/: غلاف قديم/بديل للتطبيق في auto_rescue.dart.</li><li>core/i18n/: الترجمة واختيار اللغة.</li><li>core/models/: نماذج مشتركة مثل AppUser و PlaceSearchResult.</li><li>core/services/: المصادقة، الموقع، الخرائط، التوجيه، FCM، الإشعارات، الحضور، التصدير، audit.</li><li>features/auth/pages/: تسجيل الدخول والتسجيل و AuthGate.</li><li>features/customer/pages/: صفحات العميل.</li><li>features/provider/pages/: صفحات المزود.</li><li>features/admin/pages/: صفحات الإدارة.</li><li>features/shared/pages/: الدردشة، الشروط، splash، onboarding، permission gate، receipt.</li><li>models/: نماذج المجال مثل AppRequest و ProviderAgent و RequestStatus.</li><li>repositories/: واجهات وتنفيذ Firestore.</li><li>state/app_store.dart: ChangeNotifier مركزي.</li><li>widgets/: مكونات UI مشتركة.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-4" class="doc-card">
+  <h3>5. التقنيات المستعملة ولماذا</h3>
+  <div class="doc-content">
+    <ul><li>Flutter: بناء Android و Web من قاعدة كود واحدة.</li><li>Dart: لغة Flutter وإدارة منطق الواجهة والتطبيق.</li><li>Provider / ChangeNotifier: إدارة حالة مباشرة وبسيطة عبر AppStore.</li><li>Firebase Auth: تسجيل الدخول بالبريد/كلمة المرور وبعض منطق OTP الموجود في AuthService.</li><li>Cloud Firestore: قاعدة البيانات الرئيسية للطلبات والمستخدمين والمزودين والإدارة والدردشة.</li><li>Firebase Realtime Database: حضور المزودين online/offline عبر presence/providers/{providerUid}.</li><li>Firebase Messaging: استقبال payloads ودعم إشعارات foreground/background.</li><li>Firebase Storage: رفع صور مزودين وصور إشعارات الإدارة.</li><li>Firebase Hosting: نشر Flutter Web من build/web.</li><li>Firebase Functions: proxy للبحث الجغرافي والتوجيه لتقليل مشاكل CORS وإخفاء مفاتيح routing.</li><li>flutter_map و OpenStreetMap: عرض الخرائط بدون Google Maps SDK داخل Flutter.</li><li>latlong2: حساب الإحداثيات والمسافات.</li><li>geolocator: أذونات GPS، قراءة الموقع، وتتبع المزود.</li><li>http: طلبات Nominatim/Overpass/routing أو Cloud Functions.</li><li>shared_preferences: حفظ اللغة وحالة onboarding.</li><li>flutter_local_notifications، audioplayers، vibration: تنبيهات محلية وصوت واهتزاز لعروض المهام.</li><li>url_launcher: فتح الهاتف، واتساب، البريد، و Google Maps.</li><li>file_picker: اختيار صورة إشعار الإدارة.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-5" class="doc-card">
+  <h3>6. معمارية Firebase</h3>
+  <div class="doc-content">
+    <p>المشروع مضبوط على Firebase projectId depannage-dz-imad-2026 في lib/firebase_options.dart و firebase.json. الإعدادات المتاحة في FlutterFire هي Android و Web فقط؛ المنصات الأخرى ترمي UnsupportedError في DefaultFirebaseOptions.currentPlatform.</p><h4>Firebase Auth:</h4><ul><li>يستخدم AuthService في lib/core/services/auth_service.dart.</li><li>يسمح بتسجيل الدخول بالبريد أو رقم الهاتف عبر phone_lookup.</li><li>يمنع دخول admin من الواجهة العامة إلا عبر adminOnly.</li><li>يمنع المستخدمين المحظورين من الدخول.</li><li>يتأكد أن provider يحتاج isApproved قبل دخول ProviderShellPage.</li></ul><h4>Cloud Firestore:</h4><ul><li>collections أساسية: users, providers, requests, request_chats, app_config, app_settings, app_notifications, admin_activity_logs, adminLogs.</li><li>firestore.rules يطبق RBAC حسب role داخل users/{uid}.</li></ul><h4>Realtime Database:</h4><ul><li>ProviderPresenceService يكتب في presence/providers/{providerUid}.</li><li>onDisconnect يغير isOnline إلى false عند انقطاع الاتصال.</li><li>يتم mirror لحالة online داخل providers في Firestore.</li></ul><h4>Cloud Messaging:</h4><ul><li>FcmService يهيئ قناة high_importance_channel على Android.</li><li>web/firebase-messaging-sw.js موجود لدعم messaging على Web.</li><li>الكود لا يطبع token الخام، بل يطبع &quot;FCM token saved&quot; أو &quot;FCM token refreshed&quot;.</li></ul><h4>Cloud Functions:</h4><ul><li>functions/index.js يوفر mapSearch, reverseGeocode, nearbyPlaces, routeDirections.</li><li>الدوال تقبل POST فقط وتعيد JSON، وتتعامل مع CORS.</li><li>تستخدم process.env أو functions.config() لمفاتيح OpenRouteService/GraphHopper/Mapbox.</li></ul><h4>Storage:</h4><ul><li>storage.rules تسمح للمزود أو admin برفع صور داخل providers/{providerId}/ بشرط أن تكون image/* وأقل من 5MB.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-6" class="doc-card">
+  <h3>7. بنية قاعدة البيانات من الكود</h3>
+  <div class="doc-content">
+    <p>users/{uid}</p><ul><li>uid, fullName, phone, email, role</li><li>isApproved, isBlocked</li><li>createdAtIso, updatedAtIso, lastLoginAtIso</li><li>fcmToken</li><li>authMethod</li><li>providerVehicleImageUrl عند التسجيل كمزود مع صورة</li></ul><p>phone_lookup/{normalizedPhone}</p><ul><li>email</li><li>uid</li></ul><p>تستخدم في AuthService._resolveEmailForLogin لتمكين الدخول بالهاتف أو البريد.</p><p>providers/{uid}</p><ul><li>uid, fullName, phone, email</li><li>vehicleType, plate, avatarText, vehicleImageUrl</li><li>isApproved, isBlocked, isVerified</li><li>isOnline و online</li><li>isBusy و busy</li><li>hasActiveMission, activeMission, onActiveMission</li><li>activeMissionId, activeRequestId, currentRequestId, assignedRequestId, offeredRequestId</li><li>rating, ratingCount, missionsCompleted</li><li>position: lat, lng وقد تحتوي accuracy, heading, speed</li><li>lastSeenAtIso, positionUpdatedAtIso, busyStatusUpdatedAtIso, updatedAtIso</li></ul><p>requests/{requestId}</p><h4>من AppRequest في lib/models/app_request.dart:</h4><ul><li>id, createdAt, createdAtIso, updatedAt, updatedAtIso</li><li>customerUid, customerName, customerPhone</li><li>service</li><li>pickupLabel, pickupSubtitle, customerPosition {lat,lng}</li><li>vehicleType, brandModel, payment, landmark, issueDescription, urgency</li><li>destination, destinationPosition {lat,lng}, photoHint</li><li>status</li><li>providerUid, providerName, providerPhone, providerVehicle, providerPlate, providerPosition {lat,lng}</li><li>offeredProviderUid, offeredAt, offerExpiresAt, rejectedProviderUids</li><li>estimatedDistanceKm, estimatedDurationMinutes, estimatedPrice</li><li>providerApproachDistanceKm, providerApproachDurationMinutes, providerApproachFee</li><li>clientRatingForProvider, clientReviewForProvider, isClientRated</li><li>providerRatingForClient, providerReviewForClient, isProviderRated</li><li>completedAt</li><li>timestamps إضافية تضاف من AppStore._stampRequestMetadata مثل acceptedAtIso, onTheWayAtIso, arrivedAtIso, inServiceAtIso, completedAtIso, cancelledAtIso, statusChangedAtIso.</li></ul><p>request_chats/{requestId}</p><ul><li>requestId, lastMessageId, lastMessageText, lastMessageSenderUid, lastMessageSenderRole, lastMessageCreatedAtIso.</li></ul><p>request_chats/{requestId}/messages/{messageId}</p><ul><li>id, requestId, senderUid, senderRole, text, createdAtIso.</li></ul><p>app_config/pricing</p><ul><li>basePrice, pricePerKm, commissionPercent, updatedAt, updatedAtIso.</li></ul><p>app_settings/main</p><ul><li>dispatchRadiusKm, providerOfferTimeoutSec, maintenanceMode, appEnabled, updatedAt, updatedAtIso.</li></ul><p>app_config/support</p><ul><li>phone, whatsapp, email, address, hours.</li></ul><p>app_notifications/{docId}</p><ul><li>title, body, imageUrl, targetRole, type, presentation, playSound, popupMode, startsAtIso, endsAtIso, isActive, createdAtIso, updatedAtIso.</li></ul><p>admin_activity_logs/{docId}</p><ul><li>action, targetCollection, targetId, summary, metadata, actorUid, actorName, actorRole, createdAt, createdAtIso.</li></ul><p>adminLogs/{docId}</p><ul><li>adminUid, action, targetType, targetId, createdAt, createdAtIso, metadata.</li></ul><p>email_otps/{email}</p><ul><li>code, email, createdAt, expiresAt.</li></ul><p>ملاحظة مهمة: AuthService يحتوي على email_otps، لكن firestore.rules المعروض لا يحتوي match خاص بهذه المجموعة؛ لذلك هذا الجزء قد يحتاج وظيفة backend أو قواعد إضافية إذا كان مستخدما فعليا.</p>
+  </div>
+</article>
+
+
+<article id="ar-7" class="doc-card">
+  <h3>8. أدوار المستخدمين</h3>
+  <div class="doc-content">
+    <h4>الأدوار معرفة في lib/models/app_role.dart و AppUser:</h4><ul><li>customer: العميل العادي.</li><li>provider: مزود الخدمة.</li><li>admin: الإدارة.</li></ul><h4>AuthGate يوجه المستخدم حسب AppUser:</h4><ul><li>admin إلى AdminDashboardPage.</li><li>provider غير الموافق عليه إلى شاشة انتظار approval.</li><li>provider الموافق عليه إلى ProviderShellPage.</li><li>customer إلى CustomerShellPage.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-8" class="doc-card">
+  <h3>9. شرح الصفحات الرئيسية</h3>
+  <div class="doc-content">
+    <h4>صفحات الدخول والمشاركة:</h4><ul><li>SplashPage: صفحة افتتاحية متحركة قبل الدخول.</li><li>OnboardingPage: ثلاث شرائح تشرح المساعدة السريعة، التتبع المباشر، والاعتمادية.</li><li>PermissionGatePage: يطلب أذونات GPS والإشعارات باستعمال StartupPermissionService.</li><li>LoginPage: دخول المستخدم العادي أو admin، إعادة تعيين كلمة المرور، وفتح صفحات الخصوصية والشروط.</li><li>SignupPage: إنشاء حساب customer أو provider، وحساب المزود يبقى في انتظار موافقة admin.</li><li>AuthGate: نقطة التوجيه بعد المصادقة.</li></ul><h4>صفحات العميل:</h4><ul><li>CustomerShellPage: bottom navigation بين الرئيسية، الطلبات، التاريخ، الملف، والدعم. يراقب FCM والدردشة ويفتح صفحة التقييم بعد إكمال مهمة.</li><li>CustomerHomePage: خريطة وموقع العميل ولوحة سفلية لإنشاء طلب أو تتبع مهمة نشطة.</li><li>CreateOrderPage: نموذج الطلب: نقطة الانطلاق، نوع المركبة، الموديل/الماركة، الوجهة، تقدير المسافة والوقت والسعر، ثم store.createRequest.</li><li>PickDestinationPage: البحث عن مكان أو اختيار خدمة قريبة، مع current location وخيار الخريطة.</li><li>SelectDestinationOnMapPage: اختيار نقطة مباشرة من flutter_map.</li><li>CustomerRequestsPage: عرض الطلبات الجارية مع فتح التتبع أو الإلغاء.</li><li>CustomerTrackingPage: شاشة التتبع الكبرى للعميل، تعرض الخريطة، markers، route polyline، حالة المهمة، scan card، no-provider popup، chat، call provider، receipt/rating.</li><li>CustomerHistoryPage: سجل الطلبات المكتملة أو الملغاة.</li><li>CustomerRateProviderPage: تقييم المزود بخمس نجوم وتعليق.</li><li>CustomerProfilePage: تعديل fullName, phone, email.</li><li>CustomerSupportPage: قراءة app_config/support وفتح phone/WhatsApp/email/legal.</li></ul><h4>صفحات المزود:</h4><ul><li>ProviderShellPage: bottom navigation، مراقبة عروض mission، فتح Dialog بعرض المهمة، تنبيه صوتي/اهتزاز، مراقبة FCM/chat، وفتح تقييم العميل بعد اكتمال المهمة.</li><li>ProviderDashboardPage: خريطة المزود، online/offline switch، إحصائيات، رابط الأرباح والمهام.</li><li>ProviderRequestsPage: عروض missions الواردة والمهام النشطة، قبول/رفض، عرض countdown، والتقدم في مراحل المهمة.</li><li>ProviderMissionDetailsPage: تفاصيل المهمة مع خريطة مصغرة، route، معلومات العميل، و action أساسي حسب status.</li><li>ProviderTrackingPage: تتبع المزود أثناء المهمة، تشغيل RealtimeTrackingService، فتح Google Maps، الاتصال بالعميل، chat، والتقدم في status.</li><li>ProviderEarningsPage: حساب الدخل من الطلبات المكتملة، العمولة، net earning.</li><li>ProviderHistoryPage: سجل المهام السابقة للمزود.</li><li>ProviderRateClientPage: تقييم العميل بعد انتهاء المهمة.</li><li>ProviderProfilePage: تعديل بيانات المزود في users و providers.</li><li>ProviderSupportPage: نفس فكرة support للعميل ولكن بنصوص provider.</li></ul><h4>صفحات الإدارة:</h4><ul><li>AdminDashboardPage: shell إداري مع Sidebar، overview، إدارة المزودين، العملاء، التسعير، التحليلات، الإشعارات، الطلبات، الدعم، audit.</li><li>_AdminOverviewPage داخل admin_dashboard_page.dart: KPIs لحالة الطلبات، المزودين، العملاء، الإيراد، ومهام حديثة.</li><li>_AdminProvidersPage: فلترة المزودين، approval/block/verify/force offline/mark available.</li><li>_AdminCustomersPage: فلترة العملاء وحظر/رفع الحظر.</li><li>AdminRequestsPage: مراقبة الطلبات، force cancel, clear offer, reset searching, force complete, reassign provider.</li><li>AdminPricingPage: تعديل basePrice, pricePerKm, commissionPercent, dispatchRadiusKm, providerOfferTimeoutSec.</li><li>AdminSupportConfigPage: تعديل phone/whatsapp/email/address/hours.</li><li>AdminNotificationsPage: إرسال إشعار إداري مع targetRole, type, popupMode, schedule, image.</li><li>AdminAnalyticsPage: KPIs وتحليل حسب فترة زمنية مع CSV export.</li><li>AdminActivityLogPage: قراءة admin_activity_logs مع فلترة actions.</li></ul><h4>صفحات مشتركة:</h4><ul><li>ChatPage: رسائل request_chats/messages مع metadata لآخر رسالة.</li><li>MissionReceiptPage: إيصال المهمة: السعر، المسافة، العميل، المزود، الحالة.</li><li>LegalPage: الخصوصية والشروط.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-9" class="doc-card">
+  <h3>10. الميزات الرئيسية</h3>
+  <div class="doc-content">
+    <ul><li>مصادقة متعددة الأدوار.</li><li>موافقة admin على المزود قبل استعماله.</li><li>إنشاء طلب بخريطة ووجهة وتقدير سعر.</li><li>dispatch تلقائي واحد بواحد.</li><li>timeout لكل عرض provider.</li><li>no-provider popup مع cancel أو keep waiting.</li><li>تتبع provider/customer على الخريطة.</li><li>route و ETA مع fallback.</li><li>chat لكل طلب.</li><li>تقييم customer-&gt;provider و provider-&gt;customer.</li><li>إدارة المزودين والعملاء.</li><li>تسعير قابل للتعديل.</li><li>إعدادات dispatch.</li><li>دعم app notifications مع popup وصورة وصوت وجدولة.</li><li>audit logs للإدارة.</li><li>analytics و CSV.</li><li>support config مركزي.</li><li>localization FR/EN/AR مع RTL للعربية.</li><li>Android و Web مع Firebase.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-10" class="doc-card">
+  <h3>11. الخدمات المهمة</h3>
+  <div class="doc-content">
+    <ul><li>AuthService: تسجيل الدخول والتسجيل، phone lookup، fcmToken safe read، رفع صورة مركبة provider، منع admin من الدخول العام، منع blocked users.</li><li>FcmService: تهيئة Firebase Messaging، قناة Android، payloadNotifier، foreground local notification.</li><li>LocationService: قراءة GPS، fallback، requestPermission، high accuracy tracking.</li><li>ProviderPresenceService: RTDB presence مع onDisconnect و heartbeat إلى Firestore.</li><li>RealtimeTrackingService: تحديث providers/{providerId}.position كل 3 ثوان أثناء التتبع.</li><li>RouteService: routeDirections عبر MapProxyService أولا، ثم ORS/OSRM/GraphHopper/Mapbox على غير Web، ثم خط مباشر fallback.</li><li>MapProxyService: استدعاء Cloud Functions mapSearch/reverseGeocode/nearbyPlaces/routeDirections.</li><li>PlaceSearchService و GeocodingService: بحث Nominatim/Overpass أو proxy، وإرجاع نتائج آمنة بدون كسر UI.</li><li>AlertService: صوت واهتزاز لعروض المزود وإشعارات admin popup.</li><li>InAppNotificationService: ValueNotifier للإشعارات داخل التطبيق.</li><li>AdminAuditService: كتابة admin_activity_logs و adminLogs.</li><li>StartupPermissionService: تقييم وطلب GPS/notifications عند بدء التشغيل.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-11" class="doc-card">
+  <h3>12. repositories / models / state management</h3>
+  <div class="doc-content">
+    <h4>State management:</h4><ul><li>AppStore extends ChangeNotifier ويحقن RequestRepository و TrackingRepository.</li><li>bootstrap يراقب authStateChanges ثم يفتح listeners حسب الدور.</li><li>_startVisibleRequestsListener يختار watchRequests أو watchProviderRequests أو watchCustomerRequests.</li><li>_startProvidersListener يقرأ providers ويحولها إلى ProviderAgent.</li><li>_startPricingListener و _startSettingsListener يقرآن pricing/settings.</li><li>_startAdminNotificationsListener يرسل popups لل customer/provider فقط.</li></ul><h4>Repositories:</h4><ul><li>RequestRepository هو interface.</li><li>FirestoreRequestRepository ينفذ watchRequests, watchCustomerRequests, watchProviderRequests, addRequest, updateRequest, updateStatus, offerRequestToProvider, rejectOfferedRequest, acceptOfferedRequest.</li><li>TrackingRepository هو interface.</li><li>FirestoreTrackingRepository يبني TrackingSnapshot من requests، ويكتب customerPosition/providerPosition داخل request نفسه.</li></ul><h4>Models:</h4><ul><li>AppRequest: النموذج الرئيسي للطلب.</li><li>ProviderAgent: مزود الخدمة مع الحالة والموقع والتقييم.</li><li>RequestStatus: searching, accepted, onTheWay, arrived, inService, completed, cancelled.</li><li>ServiceType: towing, battery, tire, repair، لكن createRequest الحالي يستخدم AppStore.defaultRequestService = towing.</li><li>SupportConfig: معلومات الدعم.</li><li>ChatMessage: رسالة دردشة.</li><li>RouteSnapshot: نقاط المسار، المسافة، الوقت، isFallback.</li><li>AppUser: uid و role و isApproved.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-12" class="doc-card">
+  <h3>13. مسار العميل</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-13" class="doc-card">
+  <h3>1. يدخل العميل أو يسجل حسابا.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-14" class="doc-card">
+  <h3>2. AuthGate يوجهه إلى CustomerShellPage.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-15" class="doc-card">
+  <h3>3. CustomerHomePage تعرض الموقع والخريطة.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-16" class="doc-card">
+  <h3>4. يفتح CreateOrderPage.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-17" class="doc-card">
+  <h3>5. يختار pickup و destination عبر PickDestinationPage أو SelectDestinationOnMapPage.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-18" class="doc-card">
+  <h3>6. يدخل vehicleType و brandModel.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-19" class="doc-card">
+  <h3>7. يرى estimate: distance, ETA, price.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-20" class="doc-card">
+  <h3>8. _submit يستدعي AppStore.createRequest.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-21" class="doc-card">
+  <h3>9. الطلب يكتب في requests/status=searching.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-22" class="doc-card">
+  <h3>10. AppStore يبدأ dispatch فورا.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-23" class="doc-card">
+  <h3>11. CustomerTrackingPage تعرض search/offer/route/provider.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-24" class="doc-card">
+  <h3>12. إذا لم يقبل أي مزود، يظهر NoProvidersPopup.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-25" class="doc-card">
+  <h3>13. عند القبول، يتابع العميل المزود ويتواصل معه.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-26" class="doc-card">
+  <h3>14. بعد completed، CustomerShellPage يفتح CustomerRateProviderPage.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-27" class="doc-card">
+  <h3>14. مسار المزود</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-28" class="doc-card">
+  <h3>1. يسجل كمزود.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-29" class="doc-card">
+  <h3>2. يبقى في انتظار موافقة الإدارة.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-30" class="doc-card">
+  <h3>3. بعد approval، يدخل ProviderShellPage.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-31" class="doc-card">
+  <h3>4. من ProviderDashboardPage يستطيع go online/offline.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-32" class="doc-card">
+  <h3>5. ProviderPresenceService يكتب RTDB presence ويحدث Firestore.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-33" class="doc-card">
+  <h3>6. عندما يعرض dispatch طلبا عليه، ProviderShellPage يفتح MissionOfferDialog مع عداد.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-34" class="doc-card">
+  <h3>7. يقبل أو يرفض أو ينتظر.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-35" class="doc-card">
+  <h3>8. عند القبول، AppStore.acceptRequest يكتب provider info ويحدث busy state.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-36" class="doc-card">
+  <h3>9. ProviderTrackingPage يبدأ GPS tracking.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-37" class="doc-card">
+  <h3>10. المزود يتقدم عبر accepted -&gt; onTheWay -&gt; arrived -&gt; inService -&gt; completed.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-38" class="doc-card">
+  <h3>11. بعد completion، ProviderRateClientPage يطلب تقييم العميل.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-39" class="doc-card">
+  <h3>15. مسار الإدارة</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-40" class="doc-card">
+  <h3>1. admin يدخل عبر admin login.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-41" class="doc-card">
+  <h3>2. AuthGate يوجهه إلى AdminDashboardPage.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-42" class="doc-card">
+  <h3>3. الإدارة ترى overview من requests/providers/users.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-43" class="doc-card">
+  <h3>4. يمكنها approving/blocking providers، حظر العملاء، تعديل pricing/settings/support، إرسال notifications، مراجعة requests، تصدير analytics، ورؤية audit logs.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-44" class="doc-card">
+  <h3>5. AdminAuditService يسجل actions المهمة مثل send_notification و update_pricing و update_support_config.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-45" class="doc-card">
+  <h3>16. دورة حياة الطلب</h3>
+  <div class="doc-content">
+    <h4>الحالات الموجودة في RequestStatus:</h4><ul><li>searching: طلب جديد يبحث عن مزود.</li><li>accepted: مزود قبل المهمة.</li><li>onTheWay: المزود في الطريق.</li><li>arrived: المزود وصل إلى العميل.</li><li>inService: الخدمة بدأت.</li><li>completed: المهمة انتهت.</li><li>cancelled: المهمة ألغيت.</li></ul><h4>الدوال الأساسية:</h4><ul><li>AppStore.createRequest: ينشئ الطلب.</li><li>FirestoreRequestRepository.offerRequestToProvider: يعرض الطلب على مزود واحد.</li><li>AppStore.acceptRequest: قبول المزود.</li><li>AppStore.rejectRequestForCurrentProvider/rejectRequestForProvider: رفض أو timeout.</li><li>AppStore.advanceMission: تغيير المرحلة يدويا.</li><li>AppStore.cancelRequest: إلغاء العميل/تنظيف dispatch/tracking.</li><li>AppStore.submitClientRating و submitProviderRating: التقييمات.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-46" class="doc-card">
+  <h3>17. شرح نظام dispatch</h3>
+  <div class="doc-content">
+    <h4>dispatch موجود في AppStore:</h4><ul><li>eligibleProvidersSortedByDistance</li><li>_eligibleProvidersSortedByDistanceForDispatch</li><li>_attemptFallbackDispatch</li><li>_scheduleOfferTimeout</li><li>_expireOfferAndDispatchNext</li><li>_recoverStaleOfferAndRedispatch</li></ul><h4>الأهلية:</h4><ul><li>provider online.</li><li>provider approved/isVerified.</li><li>ليس busy.</li><li>ليس hasActiveMission ولا active mission في requests.</li><li>لديه موقع valid.</li><li>داخل dispatchRadiusKm إذا كانت أكبر من 0.</li><li>لم يرفض نفس الطلب سابقا.</li></ul><h4>أسباب الاستبعاد المسجلة في debug:</h4><ul><li>offline</li><li>busy</li><li>active mission</li><li>not approved</li><li>missing location</li><li>rejected</li><li>too far</li></ul><h4>طريقة العمل:</h4>
+  </div>
+</article>
+
+
+<article id="ar-47" class="doc-card">
+  <h3>1. يتم بناء chain من المزودين المؤهلين مرتبين حسب المسافة.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-48" class="doc-card">
+  <h3>2. يكتب offeredProviderUid في الطلب.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-49" class="doc-card">
+  <h3>3. يبدأ offer timeout حسب providerOfferTimeoutSec.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-50" class="doc-card">
+  <h3>4. إن قبل المزود، تتحول المهمة إلى accepted.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-51" class="doc-card">
+  <h3>5. إن رفض أو انتهى الوقت، يضاف المزود إلى rejectedProviderUids وينتقل النظام للذي بعده.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-52" class="doc-card">
+  <h3>6. إذا انتهت السلسلة، يظهر noProviderPopupVisible للعميل بعد double-check.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-53" class="doc-card">
+  <h3>7. keepWaitingForProvider يمسح العرض ويعيد المحاولة بعد فترة muted.</h3>
+  <div class="doc-content">
+    <p>ميزة مهمة: AppStore يحتوي repair ل busy/activeMission stale state عبر _repairStaleBusyIfSafe و _repairProviderSessionStateIfSafe، حتى لا يبقى مزود عالقا كمشغول إذا لم تكن له مهمة فعالة.</p>
+  </div>
+</article>
+
+
+<article id="ar-54" class="doc-card">
+  <h3>18. شرح نظام التتبع</h3>
+  <div class="doc-content">
+    <h4>التتبع له مستويان:</h4>
+  </div>
+</article>
+
+
+<article id="ar-55" class="doc-card">
+  <h3>1. داخل AppStore:</h3>
+  <div class="doc-content">
+    <ul><li>startLiveTracking يستعمل Geolocator.getPositionStream.</li><li>يحدث request.providerPosition.</li><li>يحدث trackingRepository.setTracking.</li><li>يحدث providers/{uid}.position.</li><li>قد ينتقل تلقائيا من accepted إلى onTheWay، ومن onTheWay إلى arrived عند الاقتراب.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-56" class="doc-card">
+  <h3>2. RealtimeTrackingService:</h3>
+  <div class="doc-content">
+    <ul><li>يستخدم في ProviderTrackingPage.</li><li>يحدث providers/{providerId}.position كل 3 ثوان.</li><li>يخزن accuracy/heading/speed عندما تتوفر.</li></ul><h4>عرض الخريطة:</h4><ul><li>CustomerTrackingPage و ProviderTrackingPage يستخدمان flutter_map.</li><li>markers: customer/provider/destination.</li><li>polyline للمسار.</li><li>RouteService يقرر اتجاه route حسب status:</li></ul><p>accepted/onTheWay: من provider إلى customer.</p><p>arrived/inService/completed: من provider إلى destination عندما توجد destinationPosition.</p>
+  </div>
+</article>
+
+
+<article id="ar-57" class="doc-card">
+  <h3>19. نظام الإشعارات</h3>
+  <div class="doc-content">
+    <ul><li>FcmService يستقبل RemoteMessage ويضع payload في payloadNotifier.</li><li>CustomerShellPage و ProviderShellPage يستمعان إلى payloadNotifier.</li><li>Chat metadata في request_chats يطلق snackbar/notification داخلية.</li><li>InAppNotificationService يعرض lifecycle notifications.</li><li>AdminNotificationsPage ينشئ app_notifications.</li><li>AppStore._startAdminNotificationsListener يعرض popup للعميل/المزود حسب targetRole والجدولة.</li><li>AlertService يشغل صوت alert.mp3 لعروض المزود و admin_popup.ogg لإشعارات الإدارة.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-58" class="doc-card">
+  <h3>20. نظام اللغات</h3>
+  <div class="doc-content">
+    <ul><li>AppLocalizations يحتوي fr, en, ar.</li><li>AppLanguageController يحفظ app_language_code في SharedPreferences.</li><li>default language هو fr.</li><li>main.dart يمرر locale إلى MaterialApp.</li><li>إذا كانت اللغة ar، يتم ضبط Directionality إلى TextDirection.rtl.</li><li>LanguageSelector يسمح بتغيير العربية، الإنجليزية، والفرنسية.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-59" class="doc-card">
+  <h3>21. الأمن وقواعد Firestore</h3>
+  <div class="doc-content">
+    <h4>firestore.rules يعتمد على:</h4><ul><li>isSignedIn</li><li>role من users/{uid}</li><li>isAdmin / isCustomer / isProvider</li><li>canReadRequest</li><li>currentProviderIsAvailable</li><li>offeredProviderIsAvailable</li></ul><h4>حماية requests:</h4><ul><li>العميل ينشئ فقط طلبه status=searching.</li><li>العميل يلغي طلبه إذا كان searching.</li><li>العميل يستطيع dispatch طلبه فقط إلى provider available.</li><li>المزود يستطيع قبول طلب معروض عليه فقط.</li><li>المزود يستطيع رفض عرض خاص به فقط.</li><li>المزود يستطيع تحديث مهمة assigned وغير completed/cancelled.</li><li>التقييمات محصورة في حقول rating فقط بعد completed.</li><li>admin يملك صلاحيات واسعة على requests.</li></ul><h4>حماية tracking:</h4><ul><li>القراءة لمن له حق قراءة request.</li><li>الكتابة فقط provider assigned.</li></ul><h4>حماية providers:</h4><ul><li>القراءة للمستخدمين المسجلين.</li><li>الإنشاء owner أو admin.</li><li>التحديث owner/admin أو تحديث rating فقط من customer حسب الدالة.</li></ul><h4>حماية storage:</h4><ul><li>صور providers أقل من 5MB و image/*.</li><li>owner أو admin يكتبون في مسار provider.</li></ul><p>ملاحظة أمنية: يوجد firebase-admin.json محلي في workspace لكنه محمي ب .gitignore حسب الفحص. لا يجب تضمينه في Git.</p>
+  </div>
+</article>
+
+
+<article id="ar-60" class="doc-card">
+  <h3>22. دعم Android و Web</h3>
+  <div class="doc-content">
+    <h4>Android:</h4><ul><li>android/app/src/main/AndroidManifest.xml يحتوي location, notifications, vibration, internet, foreground service permissions.</li><li>google-services.json موجود.</li><li>FCM channel معرف في manifest.</li><li>Geolocator يستخدم GPS وأذونات runtime.</li></ul><h4>Web:</h4><ul><li>firebase_options.dart يحتوي config للويب.</li><li>web/firebase-messaging-sw.js يهيئ Firebase Messaging compat.</li><li>firebase.json يستضيف build/web مع rewrite إلى index.html.</li><li>RouteService و PlaceSearchService يتجنبان direct APIs عند kIsWeb ويفضلان Functions proxy لتفادي CORS.</li></ul><h4>قيود:</h4><ul><li>iOS/macOS/Windows/Linux غير مهيأة في firebase_options.dart.</li><li>Web push قد يتأثر بقيود المتصفح.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-61" class="doc-card">
+  <h3>23. التحديات المحلولة</h3>
+  <div class="doc-content">
+    <ul><li>dispatch موثوق لا يعتمد على APIs خارجية.</li><li>منع إرسال مهمتين لنفس المزود عبر busy/activeMission.</li><li>معالجة stale busy state.</li><li>timeout و retry لسلسلة المزودين.</li><li>fallback للخرائط والتوجيه عند فشل APIs.</li><li>إدارة دور provider pending approval.</li><li>RTL للعربية.</li><li>admin audit وتحديثات مباشرة.</li><li>دعم Web مع proxy.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-62" class="doc-card">
+  <h3>24. صعوبات تقنية وكيف عالجها الكود</h3>
+  <div class="doc-content">
+    <ul><li>CORS في Web: MapProxyService + Cloud Functions.</li><li>فشل route providers: RouteService يجرب عدة providers ثم fallback direct line.</li><li>موقع GPS غير متاح: LocationService يرجع fallback ولا يكسر UI.</li><li>انقطاع provider: ProviderPresenceService يستعمل onDisconnect في RTDB.</li><li>عروض المهام المتزامنة: Firestore transactions في offer/accept/reject.</li><li>تعدد مصادر tracking: request.providerPosition و providers.position و TrackingRepository.</li><li>الإشعارات الحساسة: FcmService لا يطبع token الخام.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-63" class="doc-card">
+  <h3>25. تحسينات مستقبلية</h3>
+  <div class="doc-content">
+    <ul><li>نقل dispatch الحرج إلى Cloud Functions لتقليل الاعتماد على client-side writes.</li><li>إضافة قواعد email_otps أو تحويل OTP إلى backend آمن.</li><li>إعداد Realtime Database rules production.</li><li>تحسين localization لتغطية كل النصوص hardcoded المتبقية.</li><li>إعداد iOS إن كان مطلوبا.</li><li>إضافة Firestore indexes موثقة.</li><li>اختبارات integration لل dispatch والتتبع.</li><li>مراقبة production logs و crash reporting.</li><li>تحسين manifest description للويب.</li><li>Payment online لاحقا إن كان جزءا من المتطلبات التجارية.</li></ul>
+  </div>
+</article>
+
+
+<article id="ar-64" class="doc-card">
+  <h3>26. نص عرض التخرج بالعربية</h3>
+  <div class="doc-content">
+    <p>السلام عليكم.</p><p>مشروعي هو Auto Rescue، منصة مساعدة على الطريق مبنية ب Flutter و Firebase. الهدف هو ربط السائق الذي يحتاج إلى خدمة سحب أو dépannage مع مزود خدمة قريب ومعتمد في الوقت الحقيقي.</p><p>المشكلة الأساسية أن طلب المساعدة بالطريقة التقليدية يتطلب اتصالات عشوائية ولا يوفر تتبعا واضحا ولا معرفة بحالة المزود. لذلك أنشأت تطبيقا بثلاث واجهات: واجهة العميل، واجهة المزود، وواجهة الإدارة.</p><p>العميل يستطيع إنشاء طلب بتحديد موقع الانطلاق والوجهة ونوع المركبة، ثم يرى السعر والوقت التقريبي. بعد إنشاء الطلب، يبدأ نظام dispatch داخل AppStore. هذا النظام يقرأ المزودين من Firestore فقط، يفلتر غير المؤهلين، يرتب الباقين حسب المسافة، ثم يعرض المهمة على مزود واحد في كل مرة مع مهلة زمنية.</p><p>المزود يستطيع تغيير حالته online/offline، ويتلقى عرض المهمة مع صوت واهتزاز وعداد. إذا قبل، تتحول المهمة إلى accepted ويصبح المزود busy حتى لا يتلقى مهمة أخرى. بعد ذلك يبدأ التتبع المباشر باستعمال Geolocator و Firestore.</p><p>الإدارة تملك لوحة تحكم لمراقبة الطلبات والمزودين والعملاء، الموافقة على المزودين، ضبط التسعير، إرسال إشعارات، ومراجعة التحليلات والسجلات.</p><p>تقنيا، استخدمت Firebase Auth للمصادقة، Firestore للبيانات realtime، Realtime Database للحضور، Firebase Messaging للإشعارات، Firebase Storage للصور، و Firebase Functions ك proxy للخرائط والتوجيه على Web. كما يدعم التطبيق الفرنسية والإنجليزية والعربية مع RTL.</p><p>أهم نقطة في المشروع هي أن dispatch لا يعتمد على خرائط خارجية أو Nominatim أو Overpass. هذه الخدمات تستخدم فقط للبحث والعرض، بينما اختيار المزود يعتمد على بيانات المزودين داخل Firestore، وهذا يجعل النظام أكثر استقرارا.</p><p>في النهاية، المشروع يعرض حلا عمليا قابلا للتطوير لمشكلة حقيقية، ويجمع بين mobile/web، realtime database، security rules، maps، notifications، ولوحة إدارة.</p>
+  </div>
+</article>
+
+
+<article id="ar-65" class="doc-card">
+  <h3>27. نص عرض التخرج بالفرنسية</h3>
+  <div class="doc-content">
+    <p>Bonjour.</p><p>Mon projet s&#x27;appelle Auto Rescue. C&#x27;est une plateforme Flutter et Firebase d&#x27;assistance routiere en temps reel. Son objectif est de connecter un client en panne avec un provider proche, disponible et valide par l&#x27;administration.</p><p>Le probleme traite est simple: dans une situation de panne, le client perd du temps a chercher un service, il ne sait pas quel prestataire est disponible, et il n&#x27;a pas de suivi clair de l&#x27;intervention. Le projet propose donc trois espaces: client, provider et administrateur.</p><p>Le client cree une demande avec un point de depart, une destination, le type de vehicule et le modele. L&#x27;application calcule une estimation de distance, de temps et de prix. Ensuite, le systeme de dispatch, implemente dans AppStore, lit les providers depuis Firestore, filtre les providers non eligibles, les trie par distance, puis propose la mission a un provider a la fois.</p><p>Le provider peut passer online ou offline. Lorsqu&#x27;une mission lui est proposee, il voit une boite de dialogue avec un compte a rebours, une alerte sonore et les informations de mission. S&#x27;il accepte, la mission devient accepted, le provider devient busy, et le suivi GPS commence.</p><p>L&#x27;administrateur possede un tableau de bord pour valider les providers, bloquer des comptes, superviser les demandes, configurer les prix, envoyer des notifications, exporter les analytics et consulter les journaux d&#x27;audit.</p><p>Techniquement, le projet utilise Firebase Auth, Cloud Firestore, Realtime Database, Firebase Messaging, Firebase Storage, Firebase Hosting et des Cloud Functions pour les proxies de carte et de routing. L&#x27;application supporte aussi le francais, l&#x27;anglais et l&#x27;arabe avec le sens RTL pour l&#x27;arabe.</p><p>La partie la plus importante est que le dispatch ne depend pas de Nominatim, Overpass ou d&#x27;une API de route. Les APIs externes servent a la recherche de lieux ou a l&#x27;affichage de routes, mais l&#x27;attribution des missions depend uniquement des providers stockes dans Firestore.</p><p>Ce projet montre donc une solution complete, temps reel, securisee et extensible pour un besoin concret d&#x27;assistance routiere.</p>
+  </div>
+</article>
+
+
+<article id="ar-66" class="doc-card">
+  <h3>28. أسئلة لجنة المناقشة وإجابات بالعربية/الفرنسية</h3>
+  <div class="doc-content">
+    <p>س: لماذا اخترتم Flutter؟</p><p>ج: لأنه يسمح ببناء Android و Web بنفس الكود، وهو مناسب لمشروع يحتاج واجهات متعددة بسرعة مع تجربة مستخدم موحدة.</p><p>Q: Pourquoi Flutter ?</p><p>R: Flutter permet de cibler Android et Web avec une seule base de code, tout en gardant une interface fluide et coherent.</p><p>س: لماذا Firebase؟</p><p>ج: لأن المشروع يحتاج realtime updates، auth، notifications، hosting، storage، وsecurity rules. Firebase يوفر هذه العناصر بدون بناء backend كامل من الصفر.</p><p>Q: Pourquoi Firebase ?</p><p>R: Le projet a besoin d&#x27;authentification, de temps reel, de notifications, de stockage et de regles de securite. Firebase couvre ces besoins rapidement.</p><p>س: كيف تمنعون إعطاء مهمتين لنفس المزود؟</p><p>ج: AppStore يفحص isBusy و hasActiveMission والطلبات النشطة، ويكتب busy/activeMission عند قبول المهمة. Firestore rules أيضا تتحقق من available provider.</p><p>Q: Comment eviter deux missions pour le meme provider ?</p><p>R: Le code verifie isBusy, hasActiveMission et les demandes actives. A l&#x27;acceptation, le provider devient busy et la mission active est stockee.</p><p>س: ماذا يحدث إذا رفض المزود؟</p><p>ج: FirestoreRequestRepository.rejectOfferedRequest يضيف provider إلى rejectedProviderUids ويمسح offeredProviderUid، ثم AppStore يمر للمزود التالي.</p><p>Q: Que se passe-t-il si le provider refuse ?</p><p>R: Le provider est ajoute a rejectedProviderUids, l&#x27;offre est nettoyee, puis AppStore propose la mission au provider suivant.</p><p>س: هل dispatch يعتمد على الخريطة؟</p><p>ج: لا. dispatch يعتمد فقط على providers في Firestore، وحساب المسافة داخليا عبر latlong2. خدمات الخرائط خارجية تستخدم للعرض والبحث فقط.</p><p>Q: Le dispatch depend-il des APIs de carte ?</p><p>R: Non. Il depend des providers Firestore et du calcul de distance local. Les APIs de carte servent a l&#x27;affichage et a la recherche.</p><p>س: كيف تدعمون Web رغم مشاكل CORS؟</p><p>ج: الكود يستعمل Firebase Functions proxy عبر MapProxyService، وعند فشلها يرجع نتائج فارغة أو route fallback بدون crash.</p><p>Q: Comment gerer CORS sur Web ?</p><p>R: MapProxyService appelle des Cloud Functions proxy. En cas d&#x27;echec, le code renvoie une reponse vide ou un fallback sans casser l&#x27;interface.</p><p>س: كيف تحمون البيانات؟</p><p>ج: عبر Firebase Auth، roles داخل users، Firestore rules، Storage rules، وعدم تسجيل secrets أو tokens في logs.</p><p>Q: Comment securiser les donnees ?</p><p>R: Avec Firebase Auth, les roles utilisateurs, les regles Firestore, les regles Storage et l&#x27;absence de logs sensibles.</p>
+  </div>
+</article>
+
+
+<article id="ar-67" class="doc-card">
+  <h3>29. سيناريو العرض المباشر</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-68" class="doc-card">
+  <h3>1. تشغيل التطبيق على Web أو Android.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-69" class="doc-card">
+  <h3>2. الدخول ك admin وإظهار dashboard.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-70" class="doc-card">
+  <h3>3. عرض providers pending ثم الموافقة على provider.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-71" class="doc-card">
+  <h3>4. الدخول كمزود والضغط online.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-72" class="doc-card">
+  <h3>5. الدخول كعميل وإنشاء طلب من CreateOrderPage.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-73" class="doc-card">
+  <h3>6. مراقبة انتقال الطلب إلى searching.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-74" class="doc-card">
+  <h3>7. إظهار عرض المهمة على provider مع countdown.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-75" class="doc-card">
+  <h3>8. قبول المهمة.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-76" class="doc-card">
+  <h3>9. فتح CustomerTrackingPage و ProviderTrackingPage.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-77" class="doc-card">
+  <h3>10. تحريك/تحديث موقع provider إن أمكن أو شرح fallback.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-78" class="doc-card">
+  <h3>11. فتح chat بين العميل والمزود.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-79" class="doc-card">
+  <h3>12. التقدم في مراحل المهمة حتى completed.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-80" class="doc-card">
+  <h3>13. إظهار rating page و receipt.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-81" class="doc-card">
+  <h3>14. العودة إلى admin analytics و requests لمشاهدة التحديث.</h3>
+  <div class="doc-content">
+    
+  </div>
+</article>
+
+
+<article id="ar-82" class="doc-card">
+  <h3>30. الخاتمة</h3>
+  <div class="doc-content">
+    <p>Auto Rescue يجمع بين تطبيق mobile/web، قاعدة بيانات realtime، dispatch business logic، تتبع GPS، إدارة، إشعارات، وتعدد لغات. الكود الحالي يثبت فكرة منصة dépannage قابلة للتطوير، مع تركيز واضح على عدم كسر dispatch، حماية Firebase، وإبقاء التجربة مناسبة للعميل والمزود والإدارة.</p>
+  </div>
+</article>
+
+
+<article id="ar-83" class="doc-card">
+  <h3>31. مزايا وخيارات إضافية ظهرت من تحليل المصدر</h3>
+  <div class="doc-content">
+    <ul><li>صفحة legal للخصوصية والشروط.</li><li>دعم CSV export في analytics.</li><li>maintenance script scripts/reset_sessions.js لتصفير جلسات المزودين والطلبات النشطة باستعمال Firebase Admin SDK محلي.</li><li>app_settings/main يحتوي maintenanceMode و appEnabled، لكن استعمالهما الواجهاتي محدود في الكود الحالي.</li><li>admin notifications تدعم images، schedule، popup modes، و targetRole.</li><li>support config مركزي مشترك بين customer/provider support pages.</li><li>markers مخصصة عبر RoleMapMarker و MapPin.</li><li>onboarding و permission gate قبل AuthGate.</li><li>يوجد DepannageApp في lib/app/auto_rescue.dart كغلاف بديل، بينما main.dart هو مسار التشغيل الفعلي.</li></ul>
+  </div>
+</article>
+
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <button id="backToTop" class="back-to-top" type="button">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
